@@ -2,21 +2,31 @@ import React from 'react';
 import './AddCategory.css'
 import TextField from '@material-ui/core/TextField';
 import { Button, Paper } from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
 
 function AddCategory() {
 
+    const history = useHistory();
+
     const addCategory = () => {
-        let categoriesString = sessionStorage.getItem("categories");
-        let categoryJson = null;
-        if(categoriesString) {
-            categoryJson = JSON.parse(categoriesString);
+        let catVal = document.getElementById('category').value;
+
+        if(catVal != undefined && catVal != null && catVal != '' && catVal.trim() != '') {
+            let categoriesString = sessionStorage.getItem("categories");
+            let categoryJson = null;
+            if(categoriesString) {
+                categoryJson = JSON.parse(categoriesString);
+            } else {
+                categoryJson = [];
+            }
+            categoryJson.push(catVal);
+            sessionStorage.setItem("categories",JSON.stringify(categoryJson));
+            alert('Category added');
+            console.log(categoryJson);
+            history.push('/');
         } else {
-            categoryJson = [];
+            alert('Please add a valid category name first!!!')
         }
-        categoryJson.push(document.getElementById('category').value);
-        sessionStorage.setItem("categories",JSON.stringify(categoryJson));
-        alert('Category added');
-        console.log(categoryJson);
     }
 
     return (
