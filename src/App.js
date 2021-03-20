@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import Categories from './components/categories/Categories';
+import AddCategory from './components/category/AddCategory'
+import Header from './header/Header';
+import Sidebar from './sidebar/Sidebar';
+import { Switch, Route } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <main>
+        <Header label="Expense Tracker" />
+        <div className='appTemplate'>
+          <Sidebar />
+          <div className='appBody'>
+            <Switch>
+              <Route path="/" exact component={Categories} />
+              <Route path="/addNewCategory" component={AddCategory} />
+            </Switch>
+          </div>
+        </div>
+      </main>
     </div>
   );
 }

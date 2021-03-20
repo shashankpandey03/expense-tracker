@@ -1,0 +1,26 @@
+.addCategoryBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 30%;
+}
+
+div > .title {
+    background-color: teal;
+    color: white;
+    font-size: 24px;
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+
+button {
+    margin-right: 10px !important;
+    margin-bottom: 10px !important;
+    float: right;
+}
+
+.text{
+    width: 100% !important;
+    margin: 10px !important;
+}

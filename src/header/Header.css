@@ -1,0 +1,14 @@
+.appHeader {
+    height: 70px;
+    background-color: turquoise;
+}
+
+.appHeader .label {
+    height: 70px;
+    background-color: turquoise;
+    color: white;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+}
