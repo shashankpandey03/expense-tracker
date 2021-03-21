@@ -11,16 +11,21 @@ function AddCategory() {
     const addCategory = () => {
         let catVal = document.getElementById('category').value;
 
-        if(catVal != undefined && catVal != null && catVal != '' && catVal.trim() != '') {
+        if (catVal !== undefined && catVal !== null && catVal !== '' && catVal.trim() !== '') {
             let categoriesString = sessionStorage.getItem("categories");
             let categoryJson = null;
-            if(categoriesString) {
+            if (categoriesString) {
                 categoryJson = JSON.parse(categoriesString);
             } else {
                 categoryJson = [];
             }
-            categoryJson.push(catVal);
-            sessionStorage.setItem("categories",JSON.stringify(categoryJson));
+
+            let catJson = {};
+            catJson.categoryName = catVal;
+            catJson.description = document.getElementById('categoryDesc').value;
+            categoryJson.push(catJson);
+
+            sessionStorage.setItem("categories", JSON.stringify(categoryJson));
             alert('Category added');
             console.log(categoryJson);
             history.push('/');
@@ -32,12 +37,13 @@ function AddCategory() {
     return (
         <Paper elevation={3} className='addCategoryBox'>
             <div>
-                <div className='title'>
-                    Add new category
-                </div>
                 <div>
                     <div className='text'>
-                        <TextField id="category" variant="outlined" />
+                        <TextField fullWidth id="category" label='Category name' variant="outlined" />
+                    </div>
+                    <div className='text'>
+                        <TextField fullWidth id="categoryDesc" label="Category description"
+                            multiline rows={4} variant="outlined" />
                     </div>
                     <div>
                         <Button variant="contained" color="primary" value="Add category" onClick={() => addCategory()}>Add category</Button>

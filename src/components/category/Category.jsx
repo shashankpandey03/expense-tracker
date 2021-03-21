@@ -1,11 +1,14 @@
 import { Paper } from "@material-ui/core";
 import './Category.css';
 
-function Category({categoryName}) {
+function Category({category}) {
     return (
-        <Paper elevation={3} className='category'>
+        <Paper elevation={20} className='category'>
             <div className='categoryHeader'>
-                {categoryName}
+                {category.categoryName}
+            </div>
+            <div className='description'>
+                {category.description}
             </div>
         </Paper>
     )

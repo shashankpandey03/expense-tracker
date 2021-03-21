@@ -17,7 +17,7 @@ function Categories() {
             <div className='categories'>
                 {
                     sessionStorage.getItem('categories') && JSON.parse(sessionStorage.getItem('categories')).map((category, i) => {
-                        return <Category categoryName={category} />
+                        return <Category category={category} />
                     })
                 }
             </div>

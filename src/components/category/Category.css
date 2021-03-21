@@ -4,6 +4,11 @@
     margin: 10px;
 }
 
+.category:hover {
+    border: 1px solid #966909;
+    transform: scale(1.1);
+}
+
 .categoryHeader {
     background-color: teal;
     color: white;
@@ -12,4 +17,10 @@
     font-weight: 700;
     padding-left: 10px;
     padding-top: 10px;
+}
+
+.description {
+    color: black;
+    padding-left: 10px;
+    padding-right: 10px;
 }
